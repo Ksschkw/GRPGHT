@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRPGHT</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <link rel="icon" type="image/x-icon" href="1731943870847.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        
+        <div class="logo">GRPGHT</div>
+        <nav>
+            <a href="authors.html#contact">CONTACT US</a>
+            <a href="authors.html">AUTHORS</a>
+            <a href="#games">GAMES</a>
+            <a href="venue.html">VENUE</a>
+            <a href="#" class="join-now" id="joinNowBtn">JOIN NOW</a>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Challenge your game!</h1>
+                <P>How good are you at FPS ?</P>
+                <p>Level up your game, win real prizes, and be part of a community of over a million serious gamers.</p>
+                <a href="#" class="reg-button" id="registerNowBtn">REGISTER NOW!</a>
+            </div>
+            
+            <div class="hero-carousel">
+                <div><img src="img1.jpg" alt="Image 1"></div>
+                <div><img src="img2.jpg" alt="Image 2"></div>
+                <div><img src="img3.jpg" alt="Image 3"></div>
+            </div>
+
+            <!-- Modal Section --> 
+            <div id="registerModal" class="modal"> 
+                <div class="modal-content"> 
+                    <span class="closeBtn">&times;</span> 
+                    <h2>Register</h2> 
+                    <p>Please enter a valid email address and a desired username. A verification code will be sent to confirm your email address.</p>
+                    <form id="dataForm" onsubmit="submitForm(event)">
+                        <label for="firstName">Username</label>
+                        <input type="text" id="username" name="firstName" required> <!-- id="firstName"--> 
+        
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <button type="submit" id="continueBtn" disabled>Submit</button>
+                    </form>
+                    <p>Already registered? <a href="#news">check news</a></p>
+                </div> 
+            </div>
+        </section>
+        <section class="stats">
+            <div class="stat">
+                <p>Players Registered</p>
+                <h2>--</h2>
+            </div>
+            <div class="stat">
+                <p>Games</p>
+                <h2>15+</h2>
+            </div>
+            <div class="stat">
+                <p>Rewards to Date</p>
+                <h2>₦10 Million+</h2>
+            </div>
+        </section>
+        <section class="about-us">
+            <h2 class="about-heading">About Us</h2>
+            <p>Welcome to GRPGHT, where FPS (First-Person Shooter) gamers come together to experience the thrill of live, competitive gaming. Our mission is to create a dynamic and immersive platform that brings FPS enthusiasts of all skill levels to compete, collaborate, and celebrate their passion for gaming in a real-world setting.</p>
+            <p>Founded by a dedicated team of FPS gamers, GRPGHT is more than just an event—it's a movement. We understand the adrenaline rush of a high-stakes match, the camaraderie of a team victory, and the constant drive to improve. That's why we've designed an arena where you can push your limits, hone your skills, and earn recognition and rewards for your efforts.</p>
+            <p>At GRPGHT, we host a variety of live events, tournaments, and challenges featuring popular FPS games. Whether you're into tactical shooters, battle royales, or classic arena shooters, you'll find your niche here. Our state-of-the-art anti-cheat measures ensure a fair and competitive environment, so you can focus on what truly matters: dominating the battlefield.</p>
+            <p>We're proud to have built a community of over 30 million gamers worldwide who share our passion for FPS gaming. From casual players looking for fun to hardcore competitors aiming for the top, everyone is welcome at GRPGHT. Join us, and be part of a community that's dedicated to elevating the live gaming experience.</p>
+        </section>        
+        <section class="games" id="games"> 
+            <h2>Games you can play at the event</h2> 
+            <div class="games-container"> 
+                <div class="game">
+                    <img src="game1.jpeg" alt="Game 1">
+                </div>
+                <div class="game">
+                    <img src="game13.jpg" alt="Game 13">
+                </div> 
+                <div class="game">
+                    <img src="game16.jpg" alt="Game 16">
+                </div>
+                <div class="game">
+                    <img src="game2.jpeg" alt="Game 2">
+                </div> 
+                <div class="game">
+                    <img src="game15.jpg" alt="Game 15">
+                </div>
+                <div class="game">
+                    <img src="game3.jpeg" alt="Game 3">
+                </div> 
+                <div class="game">
+                    <img src="game14.jpg" alt="Game 14">
+                </div>
+                <div class="game">
+                    <img src="game4.jpeg" alt="Game 4">
+                </div> 
+                <div class="game">
+                    <img src="game9.jpg" alt="Game 9">
+                </div>
+                <div class="game">
+                    <img src="game5.jpeg" alt="Game 5">
+                </div> 
+                <div class="game">
+                    <img src="game12.jpg" alt="Game 12">
+                </div>
+                <div class="game">
+                    <img src="game8.jpg" alt="Game 8">
+                </div>
+                <div class="game">
+                    <img src="game6.jpeg" alt="Game 6">
+                </div> 
+                <div class="game">
+                    <img src="game7.jpeg" alt="Game 7">
+                </div>
+                <div class="game">
+                    <img src="game10.jpg" alt="Game 10">
+                </div>
+                <div class="game">
+                    <img src="game11.jpg" alt="Game 11">
+                </div>
+                
+                <!-- <div class="game">
+                    <img src="game17.jpeg" alt="Game 7">
+                </div> -->
+            </div> 
+        </section>
+        <section class="faq"> 
+            <h2>Frequently Asked Questions</h2> 
+            <div class="faq-item"> 
+                <button class="faq-question">If I am new to FPS Gaming, can I play on GRPGHT?</button> 
+                <div class="faq-answer"> 
+                    <p>Yes! GRPGHT is designed for players of all skill levels. Whether you're a beginner or a seasoned player, you'll find events that match your skill.</p> 
+                </div> 
+            </div> 
+            <div class="faq-item"> 
+                <button class="faq-question">How much does it cost?</button> 
+                <div class="faq-answer"> 
+                    <p>Participating in events on GRPGHT is free, but if you'll need refreshment, that may require a fee.</p> 
+                </div> 
+            </div> 
+            <div class="faq-item"> 
+                <button class="faq-question">What is the GRPGHT Anti-Cheat and how does it work?</button> 
+                <div class="faq-answer"> 
+                    <p>What Anti-Cheat?</p> 
+                </div> 
+            </div> 
+            <div class="faq-item"> 
+                <button class="faq-question">How do I get started on GRPGHT?</button> 
+                <div class="faq-answer"> 
+                    <p>Register for the event on our website, Attend the event and enjoy! Nothing complex.</p> 
+                </div> 
+            </div> 
+            <div class="faq-item"> 
+                <button class="faq-question">How do GRPGHT skill levels work?</button> 
+                <div class="faq-answer"> 
+                    <p>Skill levels are based on your performance in events. The more you play and win, the higher your skill level will be.</p> 
+                </div> 
+            </div> 
+        </section>
+        <section class="event-news" id="news">
+            <h2 class="event-news-heading">Event Announcements</h2>
+            <div class="event-news-article">
+                <h3>Event Date and Location</h3>
+                <p>We're thrilled to announce that the GRPGHT physical event will take place on the 20th of December at Queens park(Oniru). Mark your calendars and get ready for an exciting day filled with gaming, competitions, and more!</p>
+            </div>
+            <div class="event-news-article">
+                <h3>Meet Our Keynote Speaker: QUEEN-ELIZABETH</h3>
+                <p>We're honored to have Queen a renowned gamer and industry expert, as our keynote speaker. Join us to hear her insights on the future of gaming and esports.</p>
+            </div>
+            <div class="event-news-article">
+                <h3>Exciting Activities Planned</h3>
+                <p>From live gaming tournaments to interactive workshops, there's something for everyone at the GRPGHT event. Stay tuned for more details on the exciting activities we have planned.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+            <p>&copy; 2024 GRPGHT. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const formData = new FormData(document.getElementById('dataForm'));
+
+            fetch('http://127.0.0.1:5000/submit', {
+                method: 'POST',
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    'Content-Type': 'application/json'
+                } 
+            }).then(response => {
+                alert('Data Submitted Successfully!');
+            }).catch(error => {
+                alert('Registered.');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -6,6 +6,7 @@
     { "src": "/(.*)", "dest": "app.py" }
   ],
   "env": {
+    "DATABASE_URL": "database.db",
     "FLASK_APP": "app.py",
     "FLASK_ENV": "production"
   }

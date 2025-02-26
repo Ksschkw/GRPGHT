@@ -193,7 +193,7 @@
             event.preventDefault();
             const formData = new FormData(document.getElementById('dataForm'));
 
-            fetch('http://127.0.0.1:5000/submit', {
+            fetch('https://grpght.vercel.app/submit', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
                 headers: {

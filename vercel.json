@@ -6,6 +6,7 @@
     { "src": "/(.*)", "dest": "app.py" }
   ],
   "env": {
+    "GOOGLE_SERVICE_FILE": "grpght-a3da4392ebd5.json"
     "DATABASE_URL": "database.db",
     "FLASK_APP": "app.py",
     "FLASK_ENV": "production"

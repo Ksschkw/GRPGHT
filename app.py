@@ -71,4 +71,4 @@ def send_static(filename):
     return send_from_directory(app.root_path, filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

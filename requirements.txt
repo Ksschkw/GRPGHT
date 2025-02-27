@@ -1,6 +1,4 @@
-Flask
-Flask-CORS
-Flask-Mail
-pygsheets
-pandas
-gunicorn
+Flask==3.1.0
+Flask_Cors==5.0.0
+pandas==2.2.3
+pygsheets==2.0.6

@@ -439,4 +439,36 @@ iframe {
         font-size: 14px; /* Adjusted font size for tablet screens */
         padding: 5px 20px; /* Adjusted padding for tablet screens */
     }
+    .stat p {
+        font-size: 100%;
+        margin-bottom: 100%;
+    }
+    
+    .stat h2 {
+        font-size: 100%;
+        margin: 0;
+    }
+    stats {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        background: transparent;
+        border-top: 10px solid #444;
+        border-bottom: 10px solid #444;
+        height: 100px; 
+    }
+    
+    .stat { 
+        background: transparent; 
+        padding: 20px; 
+        border-radius: 2px; 
+        text-align: fit; 
+        flex: 1; 
+        margin: 0 10px; 
+        border: 10px solid #555; 
+        font-size: 16px; 
+        overflow: hidden; 
+        text-overflow: ellipsis; 
+        white-space: nowrap; 
+    }
 }

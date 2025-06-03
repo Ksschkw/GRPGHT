@@ -1,82 +1,102 @@
-$(document).ready(function(){
-    $('.hero-carousel').slick({
-        autoplay: true,
-        dots: true,
-        arrows: false
-    });
-    $('.games-container').slick({ 
-        infinite: true, 
-        slidesToShow: 3, 
-        slidesToScroll: 1, 
-        arrows: true 
-    });
-    $('.faq-question').on('click', function() { 
-        $(this).next('.faq-answer').slideToggle(); 
-        $(this).toggleClass('active'); 
-    });
-
-    // Modal functionality 
-    var modal = document.getElementById("registerModal"); 
-    var joinBtn = document.getElementById("joinNowBtn"); 
-    var regBtn = document.getElementById("registerNowBtn"); 
-    var span = document.getElementsByClassName("closeBtn")[0]; 
-    joinBtn.onclick = function() { 
-        modal.style.display = "block"; 
-    } 
-    regBtn.onclick = function() { 
-        modal.style.display = "block"; 
-    } 
-    span.onclick = function() { 
-        modal.style.display = "none"; 
-    } 
-    window.onclick = function(event) { 
-        if (event.target == modal) { 
-            modal.style.display = "none"; 
-        } 
+// Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuIcon = document.querySelector('.menu-icon');
+    
+    if(menuIcon) {
+        menuIcon.addEventListener('click', function() {
+            menuToggle.checked = !menuToggle.checked;
+        });
     }
-
-    // Enable the continue button only when both fields are filled 
-    var continueBtn = document.getElementById("continueBtn"); 
-    var usernameInput = document.getElementById("username"); 
-    var emailInput = document.getElementById("email"); 
-
-    function checkInputs() { 
-        if (usernameInput.value !== "" && emailInput.value !== "") { 
-            continueBtn.disabled = false; 
-        } else { 
-            continueBtn.disabled = true; 
-        } 
-    } 
-    usernameInput.addEventListener("input", checkInputs); 
-    emailInput.addEventListener("input", checkInputs);
-
-    // Handle form submission
-    $('#registerForm').on('submit', function(event) {
-        event.preventDefault();  // Prevent the default form submission
-        
-        const formData = {
-            username: $('#username').val(),
-            email: $('#email').val()
-        };
-        
-        fetch('/register', {
-            method: 'POST',
-            body: JSON.stringify(formData),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('Data Submitted Successfully!');
-                modal.style.display = "none";  // Close the modal on success
-            } else {
-                alert('Error submitting data.');
-            }
-        })
-        .catch(error => {  // Option 1: Using the error parameter
-            console.error('Error submitting data:', error);
-            alert('Error submitting data.');
+    
+    // Modal functionality
+    const registerBtn = document.getElementById('registerNowBtn');
+    const modal = document.getElementById('registerModal');
+    const closeBtn = document.querySelector('.closeBtn');
+    
+    if(registerBtn && modal) {
+        registerBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            modal.style.display = 'flex';
+        });
+    }
+    
+    if(closeBtn && modal) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if(e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // FAQ accordion
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const answer = this.nextElementSibling;
+            answer.classList.toggle('active');
         });
     });
+    
+    // Enable form button when inputs are filled
+    const continueBtn = document.getElementById('continueBtn');
+    const usernameInput = document.getElementById('username');
+    const emailInput = document.getElementById('email');
+    
+    function checkInputs() {
+        if (usernameInput.value.trim() !== '' && emailInput.value.trim() !== '') {
+            continueBtn.disabled = false;
+            continueBtn.style.cursor = 'pointer';
+            continueBtn.style.backgroundColor = '#ff6600';
+        } else {
+            continueBtn.disabled = true;
+            continueBtn.style.cursor = 'not-allowed';
+            continueBtn.style.backgroundColor = '#666';
+        }
+    }
+    
+    if(usernameInput && emailInput && continueBtn) {
+        usernameInput.addEventListener('input', checkInputs);
+        emailInput.addEventListener('input', checkInputs);
+        checkInputs(); // Initial check
+    }
+    
+    // Initialize carousels
+    if(typeof $ !== 'undefined') {
+        $('.hero-carousel').slick({
+            autoplay: true,
+            dots: true,
+            arrows: false,
+            autoplaySpeed: 3000
+        });
+        
+        $('.games-container').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    }
 });

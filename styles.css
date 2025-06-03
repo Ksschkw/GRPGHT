@@ -1,23 +1,38 @@
+/* Added mobile-first approach and hamburger menu */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(230deg,#ff6600,#ff6600,#000,#000, #000);
     color: #fff;
-    /* background: linear-gradient(230deg,#ff0000,#ff0000,#000,#000, #000); */
+    padding-top: 60px; /* Space for fixed header */
+}
 
-    
+/* Hamburger menu styles */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+    z-index: 1001;
 }
 
 .logo {
-    font-family: 'Pacifico', cursive; /* Applying the beautiful font */
-    font-size: 28px; /* Making it larger */
-    color: #fff; /* Using a bright color to make it stand out */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a shadow for more emphasis */
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
+    z-index: 1001;
 }
 
 .logo:hover {
-    transform: scale(1.1); /* Slightly enlarging the text on hover */
+    transform: scale(1.1);
 }
 
 header {
@@ -28,12 +43,13 @@ header {
     background: #000;
     position: fixed;
     width: 100%;
-    
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+nav {
+    display: flex;
+    transition: transform 0.3s ease;
 }
 
 nav a {
@@ -41,8 +57,8 @@ nav a {
     text-decoration: none;
     margin: 0 10px;
     transition: color 0.3s ease;
-    font-size: 15px; /* Reduced font size */
-    padding: 10px 20px; /* Reduced padding */
+    font-size: 15px;
+    padding: 10px 15px;
 }
 
 nav a.join-now {
@@ -51,55 +67,185 @@ nav a.join-now {
     border-radius: 5px;
 }
 
+/* Hero section */
 .hero {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 20px;
-    height: 400px;
-    
+    flex-direction: column;
+    padding: 20px;
 }
 
 .hero-text {
-    max-width: 45%;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .hero-text h1 {
-    font-size: 80px;
-    margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 15px;
     font-family: 'Bebas Neue', sans-serif;
 }
 
 .hero-text p {
-    font-size: 18px;
-    margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 15px;
     font-family: 'Bebas Neue', sans-serif;
 }
 
-
 .reg-button {
     background: #ff6600;
-    padding: 15px 30px;
+    padding: 12px 25px;
     border-radius: 5px;
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .hero-carousel {
-    max-width: 45%;
-    margin-left: 5%;
-    position: fixed;
-
+    width: 100%;
+    margin: 0 auto;
 }
 
 .hero-carousel img {
-    max-width: 100%;
+    width: 100%;
     border-radius: 10px;
-    width: fit-content;
+    max-height: 300px;
+    object-fit: cover;
 }
-  
-  /* Modal Styles */
+
+/* Stats section */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 15px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+}
+
+.stat {
+    background: transparent;
+    padding: 15px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 5px;
+    border: 1px solid #555;
+    font-size: 14px;
+    min-width: 120px;
+    flex: 1;
+}
+
+.stat p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.stat h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Other sections */
+.about-us, .games, .faq, .event-news {
+    padding: 20px 15px;
+}
+
+.about-us h2, .games h2, .faq h2, .event-news-heading {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Fixed games section */
+.games-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #ff6600 #222;
+}
+
+.games-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.games-container::-webkit-scrollbar-track {
+    background: #222;
+}
+
+.games-container::-webkit-scrollbar-thumb {
+    background: #ff6600;
+    border-radius: 4px;
+}
+
+.game {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 15px;
+}
+
+.game img {
+    width: 100%;
+    border-radius: 8px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* FAQ section */
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 12px;
+    text-align: left;
+    background: #333;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.faq-answer {
+    padding: 10px;
+    background: #444;
+    border-radius: 5px;
+    margin-top: 5px;
+    display: none;
+}
+
+.faq-answer.active {
+    display: block;
+}
+
+/* Event news */
+.event-news-article {
+    margin-bottom: 20px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.event-news-article h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: transparent;
+    color: #fff;
+}
+
+/* Fixed modal positioning */
 .modal {
     display: none;
     position: fixed;
@@ -110,18 +256,21 @@ nav a.join-now {
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 2000; /* Above header */
 }
-  
+
 .modal-content {
     background-color: #050303;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    max-width: 50%;
-    width: 100%;
+    width: 90%;
+    max-width: 500px;
     text-align: center;
+    position: relative;
+    margin-top: 60px; /* Space below header */
 }
-  
+
 .closeBtn {
     position: absolute;
     top: 10px;
@@ -129,346 +278,167 @@ nav a.join-now {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    color: #fff;
+    z-index: 2001;
 }
-  
+
 .modal h2 {
     margin-top: 0;
     font-size: 24px;
+    color: #fff;
 }
-  
+
 .modal p {
     font-size: 14px;
-    color: #666;
+    color: #aaa;
+    margin-bottom: 15px;
 }
-  
+
 .modal form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
-  
+
 .modal label {
     font-size: 14px;
     margin-top: 10px;
-    color: #333;
+    color: #fff;
     text-align: left;
 }
-  
+
 .modal input {
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #050505;
+    border: 1px solid #444;
     border-radius: 4px;
+    background: #222;
+    color: #fff;
 }
-  
+
 .modal button {
-    background-color: #ccc;
+    background-color: #666;
     border: none;
     padding: 10px;
     margin-top: 20px;
     border-radius: 4px;
     cursor: not-allowed;
+    color: #ccc;
 }
-  
+
 .modal button:enabled {
     background-color: #ff6600;
     color: white;
     cursor: pointer;
 }
-  
+
 .modal button:enabled:hover {
-    background-color: #ad4500;
+    background-color: #e55d00;
 }
-  
+
 .modal a {
-    color: #ff6803;
+    color: #ff6600;
     text-decoration: none;
 }
-  
+
 .modal a:hover {
     text-decoration: underline;
-  }
-    
-
-.stats {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    background: transparent;
-    border-top: 1px solid #444;
-    border-bottom: 1px solid #444;
-    height: 100px; 
 }
 
-.stat { 
-    background: transparent; 
-    padding: 20px; 
-    border-radius: 30px; 
-    text-align: fit; 
-    flex: 1; 
-    margin: 0 10px; 
-    border: 1px solid #555; 
-    font-size: 16px; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
+/* Mobile menu active state */
+#menu-toggle:checked ~ nav {
+    transform: translateX(0);
 }
 
-.stat p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-.stat h2 {
-    font-size: 24px;
-    margin: 0;
-}
-.about-us { 
-    padding: 40px 20px; 
-    text-align: center; 
-    background: transparent; 
-    color: #fff; 
-    margin-top: 20px; 
-    border-radius: 10px; 
-} 
-.about-us h2 { 
-    font-size: 36px; 
-    margin-bottom: 20px; 
-    font-family: 'Bebas Neue', sans-serif;
-} 
-.about-us p { 
-    font-size: 18px; 
-    margin-bottom: 20px; 
-    line-height: 1.5; 
-}
-.games { 
-    padding: 20px; 
-    background: transparent; 
-} 
-.games h2 { 
-    text-align: center; 
-    margin-bottom: 20px; 
-} 
-.games-container { 
-    display: flex; 
-    overflow-x: scroll; 
-    padding: 10px; 
-} 
-.game { 
-    flex: 0 0 auto; 
-    width: 200px; 
-    margin-right: 10px; 
-} 
-.game img { 
-    max-width: 100%; 
-    border-radius: 10px; 
-}
-.faq { 
-    padding: 20px; 
-    background: transparent; 
-} 
-.faq h2 { 
-    text-align: center; 
-    margin-bottom: 20px; 
-} 
-.faq-item { 
-    margin-bottom: 10px; 
-} 
-.faq-question { 
-    width: 100%; 
-    padding: 10px; 
-    text-align: left; 
-    background: #333; 
-    border: none; 
-    outline: none; 
-    color: #fff; 
-    cursor: pointer; 
-    border-radius: 5px; 
-} 
-.faq-question.active { 
-    background: transparent; 
-} 
-.faq-answer { 
-    display: none; 
-    padding: 10px; 
-    background: #444; 
-    border-radius: 5px; 
-    margin-top: 5px; 
-}
-
-.event-news {
-    padding: 40px 20px;
-    background: transparent;
-    color: #fff;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-
-.event-news-heading {
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: 'Bebas Neue', sans-serif;
-}
-
-.event-news-article {
-    margin-bottom: 20px;
-}
-
-.event-news-article h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.event-news-article p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: transparent;
-    color: #fff;
-    /* position: fixed;
-    max-width: 100%; */
-}
-
-Custom styles for the venue page
-.venue-header {
-    background: linear-gradient(230deg,#ff6600,#ff6600,#000,#000, #000);
-    padding: 100px 0;
-    text-align: center;
-    color: white;
-}
-.venue-header h1 {
-    font-size: 3em;
-    margin: 0;
-    font-family: 'Bebas Neue', sans-serif;
-}
-.venue-container {
-    padding: 40px 20px;
-    color: white;
-    background-color: #333;
-    border-radius: 10px;
-    margin: 20px auto;
-    width: 80%;
-}
-.venue-description {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    line-height: 1.6;
-    text-align: center;
-}
-.map-container {
-    height: 400px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-.venue-image {
-    margin: 20px auto;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-/* Media Queries for Responsive Design */
+/* Mobile styles */
 @media (max-width: 767px) {
-    .hero {
+    .menu-icon {
         display: block;
-        padding: 80px 10px 20px 10px;
-        margin-top: 60px;
     }
-
-    .hero-text {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .hero-text h1 {
-        font-size: 40px;
-    }
-
-    .hero-text p {
-        font-size: 16px;
-    }
-
-    .hero-carousel {
-        max-width: 100%;
-        margin: 0;
-    }
-
-    .modal-content {
-        width: 95%;
-        max-width: 100%;
-    }
-
-    header {
-        display: block;
-        padding: 10px;
-        top: 0;
-    }
-
+    
     nav {
-        text-align: center;
-        margin-top: 10px;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        background: #000;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px 0;
+        transform: translateX(-100%);
+        height: calc(100vh - 60px);
+        overflow-y: auto;
     }
-
+    
     nav a {
-        display: inline-block;
+        margin: 10px 20px;
+        padding: 12px;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 1px solid #333;
+    }
+    
+    .hero {
+        padding-top: 20px;
+    }
+    
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    
+    .stat {
+        min-width: calc(50% - 20px);
         margin: 5px;
-        font-size: 12px; /* Reduced font size */
-        padding: 4px; /* Reduced padding */
+        padding: 10px;
+    }
+    
+    .modal-content {
+        max-width: 90%;
+        margin-top: 40px;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 50px 20px;
+        height: auto;
+    }
+    
+    .hero-text {
+        max-width: 45%;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    .hero-carousel {
+        max-width: 50%;
+        margin-left: 5%;
+    }
+    
     .hero-text h1 {
         font-size: 60px;
     }
-
-    .hero-text p {
-        font-size: 16px;
-    }
-
-    nav a {
-        font-size: 14px; /* Adjusted font size for tablet screens */
-        padding: 5px 20px; /* Adjusted padding for tablet screens */
-    }
-    .stat p {
-        font-size: 100%;
-        margin-bottom: 100%;
+    
+    .stats {
+        flex-wrap: nowrap;
     }
     
-    .stat h2 {
-        font-size: 100%;
-        margin: 0;
-    }
-    stats {
-        display: flex;
-        justify-content: space-around;
-        padding: 10px;
-        background: transparent;
-        border-top: 10px solid #444;
-        border-bottom: 10px solid #444;
-        height: 100px; 
+    .games-container {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
     }
     
-    .stat { 
-        background: transparent; 
-        padding: 20px; 
-        border-radius: 2px; 
-        text-align: fit; 
-        flex: 1; 
-        margin: 0 10px; 
-        border: 10px solid #555; 
-        font-size: 16px; 
-        overflow: hidden; 
-        text-overflow: ellipsis; 
-        white-space: nowrap; 
+    .game {
+        width: 150px;
+        margin-right: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .game {
+        width: 180px;
     }
 }

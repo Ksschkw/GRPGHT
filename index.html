@@ -9,11 +9,13 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
     <link rel="icon" type="image/x-icon" href="1731943870847.png">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        
         <div class="logo">GRPGHT</div>
+        <input type="checkbox" id="menu-toggle" style="display: none;">
+        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
         <nav>
             <a href="authors.html#contact">CONTACT US</a>
             <a href="authors.html">AUTHORS</a>
@@ -26,7 +28,7 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Challenge your game!</h1>
-                <P>How good are you at FPS ?</P>
+                <p>How good are you at FPS?</p>
                 <p>Level up your game, win real prizes, and be part of a community of over a million serious gamers.</p>
                 <a href="#" class="reg-button" id="registerNowBtn">REGISTER NOW!</a>
             </div>
@@ -42,10 +44,10 @@
                 <div class="modal-content"> 
                     <span class="closeBtn">&times;</span> 
                     <h2>Register</h2> 
-                    <p>Please enter a valid email address and a desired username. A verification code will be sent to confirm your email address.</p>
+                    <p>Please enter a valid email address and a desired username.</p>
                     <form id="dataForm" onsubmit="submitForm(event)">
                         <label for="firstName">Username</label>
-                        <input type="text" id="username" name="firstName" required> <!-- id="firstName"--> 
+                        <input type="text" id="username" name="firstName" required>
         
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required>
@@ -127,10 +129,6 @@
                 <div class="game">
                     <img src="game11.jpg" alt="Game 11">
                 </div>
-                
-                <!-- <div class="game">
-                    <img src="game17.jpeg" alt="Game 7">
-                </div> -->
             </div> 
         </section>
         <section class="faq"> 
@@ -193,12 +191,12 @@
             event.preventDefault();
             const formData = new FormData(document.getElementById('dataForm'));
 
-            fetch('https://grpght.vercel.app/submit', {
+            fetch('https://kosisochukwu.pythonanywhere.com/submit', {
                 method: 'POST',
                 body: JSON.stringify(Object.fromEntries(formData)),
                 headers: {
                     'Content-Type': 'application/json'
-                } 
+                }
             }).then(response => {
                 alert('Data Submitted Successfully!');
             }).catch(error => {

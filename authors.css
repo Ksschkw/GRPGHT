@@ -1,19 +1,38 @@
+/* Mobile-first with hamburger menu */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(230deg,#000,#000, #ff6600,#ff6600);
     color: #fff;
+    padding-top: 60px; /* Space for fixed header */
 }
+
+/* Hamburger menu */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+    z-index: 1001;
+}
+
 .logo {
-    font-family: 'Pacifico', cursive; /* Applying the beautiful font */
-    font-size: 28px; /* Making it larger */
-    color: #fff; /* Using a bright color to make it stand out */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding a shadow for more emphasis */
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
+    z-index: 1001;
 }
 
 .logo:hover {
-    transform: scale(1.1); /* Slightly enlarging the text on hover */
+    transform: scale(1.1);
 }
 
 header {
@@ -24,18 +43,21 @@ header {
     background: #000;
     position: fixed;
     width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+nav {
+    display: flex;
+    transition: transform 0.3s ease;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
-    
+    padding: 10px 15px;
+    font-size: 15px;
 }
 
 nav a.join-now {
@@ -60,70 +82,153 @@ main {
 
 .profile {
     display: flex;
+    flex-direction: column;
     align-items: center;
     border: 2px solid #000;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 15px;
+    margin: 15px 0;
     border-radius: 10px;
     animation: borderAnimation 2s infinite;
-    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for the hover effect */
-}
-
-.profile:nth-child(even) {
-    flex-direction: row-reverse;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(0,0,0,0.3);
 }
 
 .profile img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    margin: 0 20px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 2px solid #ff6600;
 }
 
 .profile .about {
-    flex: 1;
-}
-.profile:hover { 
-    transform: scale(1.05); /* Add scale thigny effect on hover */ 
-    box-shadow: 0 0 10px #ff6600; /* Add box shadow stuff on hover */ 
+    text-align: center;
 }
 
-@keyframes borderAnimation { 
+.profile:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #ff6600;
+}
+
+@keyframes borderAnimation {
     0% { border-color: #000; }
     50% { border-color: #ff6600; }
     100% { border-color: #000; }
 }
-.contact { 
-    text-align: center; 
-    margin-top: 40px; 
-} 
-.contact h2 { 
-    font-size: 28px; 
-    margin-bottom: 20px; 
-} 
-.contact-info { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-} 
-.contact-info a { 
-    color: #fff; 
-    text-decoration: none; 
-    font-size: 20px; 
-    margin: 10px; 
-    transition: color 0.3s; 
-    display: flex; 
-    align-items: center;
-} 
-.contact-info a:hover { 
-    color: #000000; 
-} 
-.contact-info i { 
-    margin-right: 10px; 
+
+.contact {
+    text-align: center;
+    margin-top: 30px;
 }
+
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-info a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px 0;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+}
+
+.contact-info a:hover {
+    color: #ff6600;
+    background: rgba(0,0,0,0.5);
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #ff6600;
+}
+
 footer {
     text-align: center;
     padding: 20px;
     background: transparent;
     color: #fff;
+}
+
+/* Mobile menu active state */
+#menu-toggle:checked ~ nav {
+    transform: translateX(0);
+}
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    nav {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        background: #000;
+        width: 100%;
+        flex-direction: column;
+        padding: 20px 0;
+        transform: translateX(-100%);
+        height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    nav a {
+        margin: 10px 20px;
+        padding: 12px;
+        font-size: 18px;
+        text-align: center;
+        border-bottom: 1px solid #333;
+    }
+    
+    .authors h1 {
+        font-size: 28px;
+    }
+    
+    .profile {
+        padding: 10px;
+    }
+}
+
+@media (min-width: 768px) {
+    .profile {
+        flex-direction: row;
+        align-items: center;
+        padding: 20px;
+    }
+    
+    .profile:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    
+    .profile img {
+        margin: 0 20px;
+        margin-bottom: 0;
+    }
+    
+    .profile .about {
+        text-align: left;
+        flex: 1;
+    }
+    
+    .profile:nth-child(even) .about {
+        text-align: right;
+    }
 }

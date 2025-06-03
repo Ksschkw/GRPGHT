@@ -1,13 +1,16 @@
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu functionality
     const menuToggle = document.getElementById('menu-toggle');
     const menuIcon = document.querySelector('.menu-icon');
     
     if(menuIcon) {
         menuIcon.addEventListener('click', function() {
-            menuToggle.checked = !menuToggle.checked;
+            document.querySelector('nav').classList.toggle('active');
         });
     }
+    
+    // Rest of your existing code (modal, FAQ, etc.) remains here...
     
     // Modal functionality
     const registerBtn = document.getElementById('registerNowBtn');
